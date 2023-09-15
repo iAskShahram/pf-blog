@@ -16,7 +16,7 @@ class UserController extends Controller
 			'password' => 'required|min:8',
 		]);
 
-		$user = User::where(['email', $validatedData['email']])->first();
+		$user = User::where(['email' => $validatedData['email']])->first();
 		if (!$user) {
 			return response()->json(['error' => 'User does not exist'], 401);
 		}

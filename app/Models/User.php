@@ -45,9 +45,6 @@ class User extends Authenticatable
 
 	public function posts()
 	{
-		if ($this->isSuperUser()) {
-			return Post::all();
-		}
 		return $this->hasMany(Post::class);
 	}
 }

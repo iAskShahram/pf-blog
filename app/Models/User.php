@@ -33,23 +33,16 @@ class User extends Authenticatable
 		'remember_token',
 	];
 
-	/**
-	 * The attributes that should be cast.
-	 *
-	 * @var array<string, string>
-	 */
 	protected $casts = [
 		'email_verified_at' => 'datetime',
 		'is_superuser' => 'boolean',
 	];
 
-	// funtion to check if user is admin
 	public function isSuperUser()
 	{
 		return $this->is_superuser;
 	}
 
-	// funtion to get all posts of user, but if user is admin, get all posts
 	public function posts()
 	{
 		if ($this->isSuperUser()) {
